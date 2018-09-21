@@ -1,0 +1,52 @@
+{
+  "name": "one",
+  "version": "0.0.0",
+  "description": "A JavaScript functional programming challenge featuring too much pointless brevity.",
+  "private": true,
+  "author": "Connor Wiseman",
+  "license": "MIT",
+  "main": "index.js",
+  "scripts": {
+    "start": "node example/index.js",
+    "test": "eslint src/ && nyc ava"
+  },
+  "engines": {
+    "node": ">=8.2.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ConnorWiseman/one.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ConnorWiseman/one/issues"
+  },
+  "homepage": "https://github.com/ConnorWiseman/one#readme",
+  "dependencies": {
+    "fs": "0.0.1-security",
+    "http": "0.0.0",
+    "path": "^0.12.7"
+  },
+  "devDependencies": {
+    "ava": "^0.25.0",
+    "eslint": "^5.6.0",
+    "nyc": "^13.0.1",
+    "proxyquire": "^2.1.0",
+    "sinon": "^6.3.4"
+  },
+  "nyc": {
+    "exclude": [
+      "coverage",
+      "node_modules",
+      "test"
+    ],
+    "reporter": [
+      "lcov",
+      "text-summary"
+    ]
+  },
+  "ava": {
+    "files": [
+      "test/**/*.spec.js"
+    ]
+  }
+}

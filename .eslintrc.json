@@ -1,0 +1,13 @@
+{
+  "env": {
+    "es6": true,
+    "node": true
+  },
+  "parserOptions": {
+    "ecmaVersion": 2018
+  },
+  "rules": {
+    "max-lines-per-function": [ "error", 1 ],
+    "semi": [ "error", "never" ]
+  }
+}
