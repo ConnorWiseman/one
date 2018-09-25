@@ -8,6 +8,14 @@
   },
   "rules": {
     "max-lines-per-function": [ "error", 1 ],
-    "semi": [ "error", "never" ]
+    "semi": [ "error", "never" ],
+    "no-unused-vars": [
+      "error",
+      {
+        "vars": "all",
+        "args": "after-used",
+        "ignoreRestSiblings": false
+      }
+    ]
   }
 }
