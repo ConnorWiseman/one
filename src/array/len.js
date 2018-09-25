@@ -10,4 +10,4 @@ const reduce = require('./reduce')
  * @param  {Array} xs
  * @return {Number}
  */
-module.exports = (arr) => reduce(arr, (r, x) => r + 1, 0)
+module.exports = (arr) => reduce(arr, (r) => r + 1, 0)

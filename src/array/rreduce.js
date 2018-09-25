@@ -13,4 +13,4 @@ const reverse = require('./reverse')
  * @param  {*}        r
  * @return {*}
  */
-module.exports = (arr, fn, r, i = 0) => reduce(reverse(arr), fn, r)
+module.exports = (arr, fn, r, i = 0) => reduce(reverse(arr), fn, r, i)
