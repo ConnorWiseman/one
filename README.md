@@ -16,9 +16,13 @@ __A:__ Yeah, more-or-less.
 ## Challenge Rules
 * Each function may only be a single line long
 * Each function definition must not exceed 100 characters in length
+    * Length limit does not include assignment (`module.exports = `, etc.)
+    * Length limit does include formal parameters (`(x, y, z) => {}`)
 * Functions must be short, but readable: include spaces
 * Prefer pure functions where possible
 * Semicolons are prohibited
+* Comments are required to help understand what each function does
+* Unit tests and 100% code coverage are required
 * All code must run in strict mode
 
 
