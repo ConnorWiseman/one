@@ -18,7 +18,10 @@ const next = require('./next')
 const s = (r) => r.socket.server
 
 /**
- * [exports description]
+ * Bundles an Array of middleware Functions {m} together into a single stack of
+ * middleware, executing the specified Function {d} when the stack is completed
+ * and using the specified context Object {ctx} as the context shared between
+ * each middleware Function in the new stack.
  * @param  {Array.<Function>} m
  * @param  {Function}         d
  * @param  {Object}           [ctx=dict()]
