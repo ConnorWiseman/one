@@ -19,6 +19,7 @@ __A:__ Yeah, more-or-less.
 * Functions must be short, but readable: include spaces
 * Prefer pure functions where possible
 * Semicolons are prohibited
+* All code must run in strict mode
 
 
 ## Demonstration
