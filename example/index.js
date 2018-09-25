@@ -15,9 +15,9 @@ const stack = require('./stack')
 
 // The callback to be executed at the end of the middleware Stack:
 const done = ({server, ctx}) => {
-  log('7) All done! Here\'s the context modified through each middleware:')
+  log('8) All done! Here\'s the context modified through each middleware:')
   dir(ctx, { depth: null, colors: true })
-  close(server) 
+  close(server)
 }
 
 // Nested Function calls that create a middleware handler, server instance,

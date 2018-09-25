@@ -4,10 +4,13 @@
  */
 'use strict'
 
+const path = require('path')
+
 const fns = require('../')
 
 const { gather }     = fns.array
 const { delay, log } = fns.utils
+const { serve }      = fns.static
 
 // A middleware stack is simply an Array of middleware Functions.
 
@@ -22,7 +25,7 @@ const { delay, log } = fns.utils
       state.ctx.key = 'value';
       return next(state.ctx);
     }
-    
+
     const second = ({ctx}, next) => next({...ctx, key: 'value'})
  */
 // Both `first()` and `second()` above perform the same task: they set a key on
@@ -36,8 +39,13 @@ const { delay, log } = fns.utils
 // console to demonstrate KoaJS-like asynchronous middleware flow.
 
 module.exports = gather(
+  ({req, ctx}, next) => {
+    console.log(`2) Requesting ${req.url}\n`)
+    next(ctx)
+  },
+  serve(path.join(__dirname, 'static')),
   ({ctx}, next) => {
-    log('2) Setting a bunch of properties on the `ctx` object\n')
+    log('3) Setting a bunch of properties on the `ctx` object\n')
     return next(ctx)
   },
   ({ctx}, next) => next({ ...ctx, test:  true }),
@@ -47,24 +55,24 @@ module.exports = gather(
   ({ctx}, next) => next({ ...ctx, feed:  { target: 'dog'   } }),
   ({ctx}, next) => next(ctx), // not passing ctx resets it- try empty parentheses
   async ({ctx, req, res}, next) => {
-    log('3) Skipping ahead in the middleware stack just a bit with async/await\n')
+    log('4) Skipping ahead in the middleware stack just a bit with async/await\n')
     await next(ctx)
-    log('10) Finally getting around to ending response. Check your browser!')
+    log('11) Finally getting around to ending response. Check your browser!')
     res.end('Delayed hello, world!')
   },
   async({ctx}, next) => {
-    log('\t4) Waiting an arbitrary 1 second before ending the response')
+    log('\t5) Waiting an arbitrary 1 second before ending the response')
     log('\t   (Pretend it\'s an awful internet connection or something)\n')
     await delay(1000)
-    log('5) Oh, good, finally connected\n')
+    log('6) Oh, good, finally connected\n')
     await next(ctx)
-    log('9) One more step backward to go...')
+    log('10) One more step backward to go...')
   },
   async ({ctx, req, res}, next) => {
-    log('\t6) Waiting an arbitrary 3 seconds before ending the response')
+    log('\t7) Waiting an arbitrary 3 seconds before ending the response')
     log('\t   (Pretend it\'s an intense database operation or something)\n')
     await delay(3000)
     await next(ctx)
-    log('\n8) Okay, stepping back to where we skipped ahead...')
+    log('\n9) Okay, stepping back to where we skipped ahead...')
   }
 )
