@@ -39,4 +39,3 @@ Pop open a browser and hit `http://localhost:3000`, then watch your console.
 
 ## To-do List
 * Implement some form of URL request routing
-* Add MIME types to static file responses
