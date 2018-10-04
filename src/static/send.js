@@ -4,6 +4,7 @@
 'use strict'
 
 const fstream   = require('./fstream')
+const mime      = require('../header/mime')
 const normalize = require('./normalize')
 
 /**
@@ -15,4 +16,4 @@ const normalize = require('./normalize')
  * @param  {String}         p
  * @return {WriteStream}
  */
-module.exports = (res, d, p) => fstream(normalize(d, p)).pipe(res)
+module.exports = (res, d, p) => fstream(normalize(d, p)).pipe(mime(res, p))

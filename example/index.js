@@ -27,7 +27,7 @@ listen(
     on(
       server(
         handler(stack, done)
-      ), 'close', () => log('\n11) Server has closed!')
+      ), 'close', () => log('11) Server has closed!')
     ), 'listening', () => log('1) Server is now listening on localhost:3000\n')
   )
 )

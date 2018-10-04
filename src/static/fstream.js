@@ -12,4 +12,4 @@ const { createReadStream } = require('fs')
  * @param  {Object} [o={}]
  * @return {ReadStream}
  */
-module.exports = (f, o = { encoding: 'utf-8' }) => createReadStream(f, o)
+module.exports = (f, o = {}) => createReadStream(f, o)

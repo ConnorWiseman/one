@@ -57,7 +57,7 @@ module.exports = gather(
   async ({ctx, req, res}, next) => {
     log('4) Skipping ahead in the middleware stack just a bit with async/await\n')
     await next(ctx)
-    log('11) Finally getting around to ending response. Check your browser!')
+    log('11) Finally getting around to ending response. Check your browser!\n')
     res.end('Delayed hello, world!')
   },
   async({ctx}, next) => {
